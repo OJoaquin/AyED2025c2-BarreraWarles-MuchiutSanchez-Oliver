@@ -2,7 +2,7 @@ class Nodo:
     def __init__(self, dato):  
         self.dato = dato
         self.siguiente = None
-        self.anterior = None
+        self.anterior = None    
 class ListaDobleEnlazada:
     def __init__(self):
         self.primero = None
@@ -36,10 +36,23 @@ class ListaDobleEnlazada:
                 actual.anterior.siguiente = nuevo_nodo
                 actual.anterior = nuevo_nodo
                 self.tamanio += 1
-    def copiar(self):
+    def copiar(self, copia):
         copia.self = ListaDobleEnlazada()
         actual = self.primero
         while actual is not None:
             copia.agregar_al_final(actual.dato)
             actual = actual.siguiente
         return copia
+    
+    def invertir(self):
+        actual = self.primero
+        self.primero, self.ultimo = self.ultimo, self.primero
+        while actual:
+             actual.siguiente, actual.anterior = actual.anterior, actual.siguiente
+             actual = actual.anterior
+
+        
+        
+    
+    
+    
