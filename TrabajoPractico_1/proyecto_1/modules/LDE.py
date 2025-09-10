@@ -62,19 +62,21 @@ class ListaDobleEnlazada:
             dato = self.cabeza
             self.cabeza = self.cabeza.siguiente
             self.tamanio -= 1
+            self.cabeza.anterior = None
         if posicion == self.tamanio:
             dato = self.cola
             self.cola = self.cola.anterior
+            self.cola.siguiente = None
             self.tamanio -= 1
         else:
             actual = self.cabeza
-            for _ in range(posicion):
+            for _ in range(posicion+1):
                 actual = actual.siguiente
-            dato = actual
-            actual.anterior.siguiente = actual.siguiente
-            actual.siguiente.anterior = actual.anterior
+            dato = actual.dato
+            actual.anterior.siguiente , actual.siguiente.anterior = actual.siguiente , actual.anterior
+            actual = actual.siguiente
             self.tamanio -= 1
-        return dato
+            return dato 
 
     def copiar(self):
         copia = ListaDobleEnlazada()
@@ -83,28 +85,36 @@ class ListaDobleEnlazada:
             copia.agregar_al_final(actual.dato)
             actual = actual.siguiente
         return copia
-    
     def invertir(self):
-        actual = self.cabeza
+        actual = self.cola
         self.cabeza, self.cola = self.cola, self.cabeza
+        for _ in range(self.tamanio+1):
+            if actual is not None:
+                actual.siguiente, actual.anterior = actual.anterior, actual.siguiente
+                actual = actual.siguiente
+        return
+    def concatenar(self, lista):
+        actual = lista.cabeza
+        if lista.cabeza is None:
+            return
         while actual:
-             actual.siguiente, actual.anterior = actual.anterior, actual.siguiente
-             actual = actual.anterior
-    
-    def concatenar(self, otra_lista):
-        
-        self.cola.siguiente = otra_lista.cabeza
-        otra_lista.cabeza.anterior = self.cola
-        self.cola = otra_lista.cola
-        self.tamanio += otra_lista.tamanio
-        
+            self.agregar_al_final(actual.dato)
+            actual = actual.siguiente
         return self
 
     def __len__(self):
         return self.tamanio
- 
+    def __add__(self, Lista):
+        nueva_lista = ListaDobleEnlazada()
+        nueva_lista = self.copiar()
+        nueva_lista.concatenar(Lista)
+        return nueva_lista
+    def __iter__ (self):
         
-        
     
-    
-    
+if __name__=="__main":
+    l1=ListaDobleEnlazada()
+
+    l2=ListaDobleEnlazada()
+
+    l3=l1+l2
