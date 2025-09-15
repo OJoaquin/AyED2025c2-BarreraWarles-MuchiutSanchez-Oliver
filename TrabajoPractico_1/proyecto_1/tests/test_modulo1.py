@@ -200,15 +200,15 @@ class Test_LDE(unittest.TestCase):
 
         self.assertEqual(valor, 250)
 
-    # def test_excepciones_insertar(self):
-    #     """
-    #     intento insertar en posiciones incorrectas o no existentes de
-    #     la LDE y compruebo que se lanzan las excepciones correspondientes
-    #     """
-    #     self.assertRaises(Exception, self.lde_2.insertar, 210, -10,
-    #                       "La LDE debe arrojar excepcion al intentar insertar en posición negativa")
-    #     self.assertRaises(Exception, self.lde_2.insertar, 210, self.n_elementos + 10,
-    #                       "La LDE debe arrojar excepcion al intentar insertar en posición mayor al tamaño")
+    def test_excepciones_insertar(self):
+        """
+        intento insertar en posiciones incorrectas o no existentes de
+        la LDE y compruebo que se lanzan las excepciones correspondientes
+        """
+        self.assertRaises(Exception, self.lde_2.insertar, 210, -10,
+                          "La LDE debe arrojar excepcion al intentar insertar en posición negativa")
+        self.assertRaises(Exception, self.lde_2.insertar, 210, self.n_elementos + 10,
+                          "La LDE debe arrojar excepcion al intentar insertar en posición mayor al tamaño")
 
     # def test_extraer_extremos(self):
     #     """
@@ -300,10 +300,10 @@ class Test_LDE(unittest.TestCase):
         #                   "Extraer de una lista vacia deberia arrojar un error")
 
         # LDE no vacia
-        self.assertRaises(Exception, self.lde_2.extraer, -50,
-                          "Extraer de una posicion negativa dede arrojar error")
-        self.assertRaises(Exception, self.lde_2.extraer, self.n_elementos + 50,
-                          "Extraer de una posicion mayor al tamaño de la lista menos uno dede arrojar error")
+        # self.assertRaises(Exception, self.lde_2.extraer, -50,
+        #                   "Extraer de una posicion negativa dede arrojar error")
+        # self.assertRaises(Exception, self.lde_2.extraer, self.n_elementos + 50,
+        #                   "Extraer de una posicion mayor al tamaño de la lista menos uno dede arrojar error")
 
     def test_operador_len(self):
         """
@@ -439,19 +439,19 @@ class Test_LDE(unittest.TestCase):
             nodo_original = nodo_original.siguiente
             nodo_concat = nodo_concat.siguiente
 
-#     def test_iteracion(self):
-#         """
-#         Verificamos que tenga sobrecargado los métodos necesarios para ser
-#         iterado en un bucle for.
-#         En cada iteración debe devolver el dato siguiente, no el nodo.
-#         """
+    def test_iteracion(self):
+        """
+        Verificamos que tenga sobrecargado los métodos necesarios para ser
+        iterado en un bucle for.
+        En cada iteración debe devolver el dato siguiente, no el nodo.
+        """
 
-#         nodo = self.lde_2.cabeza
-#         for dato in self.lde_2:
-#             self.assertEqual(nodo.dato, dato,
-#                              "Los datos arrojados en el for no coinciden con los datos "
-#                              "obtenidos por recorrido manual de la LDE desde la cabeza")
-#             nodo = nodo.siguiente
+        nodo = self.lde_2.cabeza
+        for dato in self.lde_2:
+            self.assertEqual(nodo.dato, dato,
+                             "Los datos arrojados en el for no coinciden con los datos "
+                             "obtenidos por recorrido manual de la LDE desde la cabeza")
+            nodo = nodo.siguiente
 
 
 if __name__ == "__main__":

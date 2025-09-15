@@ -104,17 +104,16 @@ class ListaDobleEnlazada:
 
     def __len__(self):
         return self.tamanio
+    
     def __add__(self, Lista):
         nueva_lista = ListaDobleEnlazada()
         nueva_lista = self.copiar()
         nueva_lista.concatenar(Lista)
         return nueva_lista
-    def __iter__ (self):
-        
     
-if __name__=="__main":
-    l1=ListaDobleEnlazada()
+    def __iter__(self,lista):
+        actual = self.cabeza
+        while actual is not None:
+            yield actual.dato
+            actual = actual.siguiente
 
-    l2=ListaDobleEnlazada()
-
-    l3=l1+l2
