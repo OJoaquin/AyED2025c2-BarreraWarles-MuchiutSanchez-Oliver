@@ -55,28 +55,30 @@ class ListaDobleEnlazada:
             actual.anterior = nuevo_nodo
             self.tamanio += 1 
     
-    def extraer(self, posicion):
-        if posicion < 0 or posicion > self.tamanio:
-            raise IndexError("Posición fuera de rango")
+    def extraer(self, posicion = None):
+        if posicion == None:
+            posicion = self.tamanio-1
         if posicion == 0:
             dato = self.cabeza
             self.cabeza = self.cabeza.siguiente
             self.tamanio -= 1
             self.cabeza.anterior = None
-        if posicion == self.tamanio:
+        elif posicion == self.tamanio-1 or posicion == -1:
             dato = self.cola
             self.cola = self.cola.anterior
             self.cola.siguiente = None
             self.tamanio -= 1
-        else:
+        elif posicion>-1 and posicion<self.tamanio-1:
             actual = self.cabeza
             for _ in range(posicion):
                 actual = actual.siguiente
-            dato = actual.dato
+            dato = actual
             actual.anterior.siguiente , actual.siguiente.anterior = actual.siguiente , actual.anterior
             actual = actual.siguiente
             self.tamanio -= 1
-            return dato 
+        else:
+            raise IndexError("Posición fuera de rango")
+        return dato.dato
 
     def copiar(self):
         copia = ListaDobleEnlazada()
@@ -111,7 +113,7 @@ class ListaDobleEnlazada:
         nueva_lista.concatenar(Lista)
         return nueva_lista
     
-    def __iter__(self,lista):
+    def __iter__(self):
         actual = self.cabeza
         while actual is not None:
             yield actual.dato
@@ -128,14 +130,18 @@ class ListaDobleEnlazada:
 
 if __name__ == "__main__":
     lde1 = ListaDobleEnlazada()
+    lde1.agregar_al_final(0)
     lde1.agregar_al_final(1)
     lde1.agregar_al_final(2)
     lde1.agregar_al_final(3)
     lde1.agregar_al_final(4)
     lde1.agregar_al_final(5)
     print(lde1)
-    lde1.extraer(1)
+    print(lde1.tamanio)
+    lde1.extraer(-1)
     print(lde1)
+    print(lde1.tamanio)
+
 
     
 

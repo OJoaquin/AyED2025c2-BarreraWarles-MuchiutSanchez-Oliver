@@ -439,19 +439,19 @@ class Test_LDE(unittest.TestCase):
             nodo_original = nodo_original.siguiente
             nodo_concat = nodo_concat.siguiente
 
-    # def test_iteracion(self):
-    #     """
-    #     Verificamos que tenga sobrecargado los métodos necesarios para ser
-    #     iterado en un bucle for.
-    #     En cada iteración debe devolver el dato siguiente, no el nodo.
-    #     """
+    def test_iteracion(self):
+        """
+        Verificamos que tenga sobrecargado los métodos necesarios para ser
+        iterado en un bucle for.
+        En cada iteración debe devolver el dato siguiente, no el nodo.
+        """
 
-    #     nodo = self.lde_2.cabeza
-    #     for dato in self.lde_2:
-    #         self.assertEqual(nodo.dato, dato,
-    #                          "Los datos arrojados en el for no coinciden con los datos "
-    #                          "obtenidos por recorrido manual de la LDE desde la cabeza")
-    #         nodo = nodo.siguiente
+        nodo = self.lde_2.cabeza
+        for dato in self.lde_2:
+            self.assertEqual(nodo.dato, dato,
+                             "Los datos arrojados en el for no coinciden con los datos "
+                             "obtenidos por recorrido manual de la LDE desde la cabeza")
+            nodo = nodo.siguiente
 
 
 if __name__ == "__main__":
