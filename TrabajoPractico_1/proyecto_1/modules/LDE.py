@@ -70,7 +70,7 @@ class ListaDobleEnlazada:
             self.tamanio -= 1
         else:
             actual = self.cabeza
-            for _ in range(posicion+1):
+            for _ in range(posicion):
                 actual = actual.siguiente
             dato = actual.dato
             actual.anterior.siguiente , actual.siguiente.anterior = actual.siguiente , actual.anterior
@@ -116,4 +116,28 @@ class ListaDobleEnlazada:
         while actual is not None:
             yield actual.dato
             actual = actual.siguiente
+
+    def __str__(self):
+        #sirve para poder mostrar el contenido de una LDE por consola con la función print
+        elementos = []
+        actual = self.cabeza
+        while actual is not None:
+            elementos.append(str(actual.dato))
+            actual = actual.siguiente
+        return " <-> ".join(elementos)
+
+if __name__ == "__main__":
+    lde1 = ListaDobleEnlazada()
+    lde1.agregar_al_final(1)
+    lde1.agregar_al_final(2)
+    lde1.agregar_al_final(3)
+    lde1.agregar_al_final(4)
+    lde1.agregar_al_final(5)
+    print(lde1)
+    lde1.extraer(1)
+    print(lde1)
+
+    
+
+
 

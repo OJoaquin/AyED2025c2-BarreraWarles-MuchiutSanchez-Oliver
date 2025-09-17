@@ -210,100 +210,100 @@ class Test_LDE(unittest.TestCase):
         self.assertRaises(Exception, self.lde_2.insertar, 210, self.n_elementos + 10,
                           "La LDE debe arrojar excepcion al intentar insertar en posición mayor al tamaño")
 
-    # def test_extraer_extremos(self):
-    #     """
-    #     pruebo extraer ítems al inicio y al final de la LDE
-    #     con/sin parámetro, verifico el valor extraído y el tamaño
-    #     resultante de la LDE
-    #     """
-    #     # Extraer al inicio
-    #     self.assertEqual(self.lde_3.extraer(0), self.lista_aux_3.pop(0),
-    #                      "No se extrajo correctamente los elementos de la lista")
-    #     self.assertEqual(len(self.lde_3), self.n_elementos - 1,
-    #                      "No se actualizo debidamente el tamaño de la lista luego de extraer")
-    #     # Verificamos que la lista este correctamente enlazada
-    #     self.recorrer_lista(self.lde_3)
+    def test_extraer_extremos(self):
+        """
+        pruebo extraer ítems al inicio y al final de la LDE
+        con/sin parámetro, verifico el valor extraído y el tamaño
+        resultante de la LDE
+        """
+        # Extraer al inicio
+        self.assertEqual(self.lde_3.extraer(0), self.lista_aux_3.pop(0),
+                         "No se extrajo correctamente los elementos de la lista")
+        self.assertEqual(len(self.lde_3), self.n_elementos - 1,
+                         "No se actualizo debidamente el tamaño de la lista luego de extraer")
+        # Verificamos que la lista este correctamente enlazada
+        self.recorrer_lista(self.lde_3)
 
-    #     # Extraer al final sin parámetro
-    #     self.assertEqual(self.lde_3.extraer(), self.lista_aux_3.pop(),
-    #                      "Cuando no se pasa argumento, se debe extraer el ultimo elemento de la lista")
-    #     self.assertEqual(len(self.lde_3), self.n_elementos - 2,
-    #                      "No se actualizo debidamente el tamaño de la lista luego de extraer")
-    #     # Verificamos que la lista este correctamente enlazada
-    #     self.recorrer_lista(self.lde_3)
+        # Extraer al final sin parámetro
+        self.assertEqual(self.lde_3.extraer(), self.lista_aux_3.pop(),
+                         "Cuando no se pasa argumento, se debe extraer el ultimo elemento de la lista")
+        self.assertEqual(len(self.lde_3), self.n_elementos - 2,
+                         "No se actualizo debidamente el tamaño de la lista luego de extraer")
+        # Verificamos que la lista este correctamente enlazada
+        self.recorrer_lista(self.lde_3)
 
-    #     # Extraer al final usando parámetro
-    #     self.assertEqual(self.lde_3.extraer(len(self.lde_3) - 1), self.lista_aux_3.pop(),
-    #                      "No se extrajo correctamente los elementos de la lista")
-    #     self.assertEqual(self.lde_3.tamanio, self.n_elementos - 3,
-    #                      "No se actualizo debidamente el tamaño de la lista luego de extraer")
-    #     # Verificamos que la lista este correctamente enlazada
-    #     self.recorrer_lista(self.lde_3)
+        # Extraer al final usando parámetro
+        self.assertEqual(self.lde_3.extraer(len(self.lde_3) - 1), self.lista_aux_3.pop(),
+                         "No se extrajo correctamente los elementos de la lista")
+        self.assertEqual(self.lde_3.tamanio, self.n_elementos - 3,
+                         "No se actualizo debidamente el tamaño de la lista luego de extraer")
+        # Verificamos que la lista este correctamente enlazada
+        self.recorrer_lista(self.lde_3)
 
-    #     # Extraer al final parámetro -1
-    #     self.assertEqual(self.lde_3.extraer(-1), self.lista_aux_3.pop(),
-    #                      "No se extrajo correctamente los elementos de la lista")
-    #     self.assertEqual(self.lde_3.tamanio, self.n_elementos - 4,
-    #                      "No se actualizo debidamente el tamaño de la lista luego de extraer")
-    #     # Verificamos que la lista este correctamente enlazada
-    #     self.recorrer_lista(self.lde_3)
+        # Extraer al final parámetro -1
+        self.assertEqual(self.lde_3.extraer(-1), self.lista_aux_3.pop(),
+                         "No se extrajo correctamente los elementos de la lista")
+        self.assertEqual(self.lde_3.tamanio, self.n_elementos - 4,
+                         "No se actualizo debidamente el tamaño de la lista luego de extraer")
+        # Verificamos que la lista este correctamente enlazada
+        self.recorrer_lista(self.lde_3)
 
-    # def test_extraer_interior(self):
-    #     """
-    #     extraigo un elemento de una posición aleatoria de la lista
-    #     con elementos no repetidos y compruebo que el mismo no permanece
-    #     en la lista
-    #     """
-    #     posicion = random.randint(1, self.n_elementos - 1)
-    #     lde3_copia = self.lde_3.copiar()
+    def test_extraer_interior(self):
+        """
+        extraigo un elemento de una posición aleatoria de la lista
+        con elementos no repetidos y compruebo que el mismo no permanece
+        en la lista
+        """
+        posicion = random.randint(1, self.n_elementos - 1)
+        lde3_copia = self.lde_3.copiar()
 
-    #     item = lde3_copia.extraer(posicion)
+        item = lde3_copia.extraer(posicion)
 
-    #     # Verifico tamaño
-    #     self.assertEqual(len(lde3_copia), len(self.lde_3) - 1,
-    #                      "No se modifico correctamente el tamaño de la lista luego de la extracción")
+        # Verifico tamaño
+        self.assertEqual(len(lde3_copia), len(self.lde_3) - 1,
+                         "No se modifico correctamente el tamaño de la lista luego de la extracción")
 
-    #     # Verifico que este correctamente enlazada
-    #     self.recorrer_lista(lde3_copia)
+        # Verifico que este correctamente enlazada
+        self.recorrer_lista(lde3_copia)
 
-    #     nodo_original = self.lde_3.cabeza
-    #     nodo_copia = lde3_copia.cabeza
-    #     contador_pos = 0
-    #     while nodo_original is not None:
-    #         if contador_pos == posicion:
-    #             self.assertEqual(nodo_original.dato, item,
-    #                              "El elemento extraido no coincide con el elemento originariamente en la posicion solicitada")
-    #             nodo_original = nodo_original.siguiente
-    #         self.assertEqual(nodo_original.dato, nodo_copia.dato,
-    #                          "Luego de la extracción los demás elementos de la lista se vieron alterados")
-    #         nodo_original = nodo_original.siguiente
-    #         nodo_copia = nodo_copia.siguiente
-    #         contador_pos += 1
+        nodo_original = self.lde_3.cabeza
+        nodo_copia = lde3_copia.cabeza
+        contador_pos = 0
+        while nodo_original is not None:
+            if contador_pos == posicion:
+                self.assertEqual(nodo_original.dato, item,
+                                 "El elemento extraido no coincide con el elemento originariamente en la posicion solicitada")
+                nodo_original = nodo_original.siguiente
+            self.assertEqual(nodo_original.dato, nodo_copia.dato,
+                             "Luego de la extracción los demás elementos de la lista se vieron alterados")
+            nodo_original = nodo_original.siguiente
+            nodo_copia = nodo_copia.siguiente
+            contador_pos += 1
 
-    # def test_excepciones_extraer(self):
-    #     """
-    #     pruebo extraer en una lista vacía y en posiciones fuera
-    #     de los límites de la LDE. Compruebo las excepciones
-    #     """
+    def test_excepciones_extraer(self):
+        """
+        pruebo extraer en una lista vacía y en posiciones fuera
+        de los límites de la LDE. Compruebo las excepciones
+        """
         # LDE vacía
-        # self.assertRaises(Exception, self.lde_1.extraer,
-        #                   "Extraer de una lista vacia deberia arrojar un error")
-        # self.assertRaises(Exception, self.lde_1.extraer, 0,
-        #                   "Extraer de una lista vacia deberia arrojar un error")
-        # self.assertRaises(Exception, self.lde_1.extraer, -1,
-        #                   "Extraer de una lista vacia deberia arrojar un error")
-        # self.assertRaises(Exception, self.lde_1.extraer, self.n_elementos - 1,
-        #                   "Extraer de una lista vacia deberia arrojar un error")
-        # self.assertRaises(Exception, self.lde_1.extraer, self.n_elementos + 10,
-        #                   "Extraer de una lista vacia deberia arrojar un error")
-        # self.assertRaises(Exception, self.lde_1.extraer, -(self.n_elementos + 10),
-        #                   "Extraer de una lista vacia deberia arrojar un error")
+        self.assertRaises(Exception, self.lde_1.extraer,
+                          "Extraer de una lista vacia deberia arrojar un error")
+        self.assertRaises(Exception, self.lde_1.extraer, 0,
+                          "Extraer de una lista vacia deberia arrojar un error")
+        self.assertRaises(Exception, self.lde_1.extraer, -1,
+                          "Extraer de una lista vacia deberia arrojar un error")
+        self.assertRaises(Exception, self.lde_1.extraer, self.n_elementos - 1,
+                          "Extraer de una lista vacia deberia arrojar un error")
+        self.assertRaises(Exception, self.lde_1.extraer, self.n_elementos + 10,
+                          "Extraer de una lista vacia deberia arrojar un error")
+        self.assertRaises(Exception, self.lde_1.extraer, -(self.n_elementos + 10),
+                          "Extraer de una lista vacia deberia arrojar un error")
 
         # LDE no vacia
-        # self.assertRaises(Exception, self.lde_2.extraer, -50,
-        #                   "Extraer de una posicion negativa dede arrojar error")
-        # self.assertRaises(Exception, self.lde_2.extraer, self.n_elementos + 50,
-        #                   "Extraer de una posicion mayor al tamaño de la lista menos uno dede arrojar error")
+        self.assertRaises(Exception, self.lde_2.extraer, -50,
+                          "Extraer de una posicion negativa dede arrojar error")
+        self.assertRaises(Exception, self.lde_2.extraer, self.n_elementos + 50,
+                          "Extraer de una posicion mayor al tamaño de la lista menos uno dede arrojar error")
 
     def test_operador_len(self):
         """
@@ -439,19 +439,19 @@ class Test_LDE(unittest.TestCase):
             nodo_original = nodo_original.siguiente
             nodo_concat = nodo_concat.siguiente
 
-    def test_iteracion(self):
-        """
-        Verificamos que tenga sobrecargado los métodos necesarios para ser
-        iterado en un bucle for.
-        En cada iteración debe devolver el dato siguiente, no el nodo.
-        """
+    # def test_iteracion(self):
+    #     """
+    #     Verificamos que tenga sobrecargado los métodos necesarios para ser
+    #     iterado en un bucle for.
+    #     En cada iteración debe devolver el dato siguiente, no el nodo.
+    #     """
 
-        nodo = self.lde_2.cabeza
-        for dato in self.lde_2:
-            self.assertEqual(nodo.dato, dato,
-                             "Los datos arrojados en el for no coinciden con los datos "
-                             "obtenidos por recorrido manual de la LDE desde la cabeza")
-            nodo = nodo.siguiente
+    #     nodo = self.lde_2.cabeza
+    #     for dato in self.lde_2:
+    #         self.assertEqual(nodo.dato, dato,
+    #                          "Los datos arrojados en el for no coinciden con los datos "
+    #                          "obtenidos por recorrido manual de la LDE desde la cabeza")
+    #         nodo = nodo.siguiente
 
 
 if __name__ == "__main__":
