@@ -12,10 +12,19 @@ class Mazo:
         return self.mazo.tamanio
     
     def poner_carta_arriba(self, carta):
-        self.mazo.agregar_al_inicio(carta)
+        self.mazo.agregar_al_final(carta)
 
     def poner_carta_abajo(self, carta):
-        self._cartas.agregar_al_final(carta)
+        self.mazo.agregar_al_inicio(carta)
+    
+    def sacar_carta_arriba(self, mostrar = False):
+        nodo_carta = self.mazo.cabeza
+        if nodo_carta != None:
+            nodo_carta.dato.visible = mostrar
+            carta = self.mazo.extraer()
+        else:
+            raise DequeEmptyError("El mazo está vacío")
+        return carta  # Elimina y devuelve la carta en la posición 0 (parte superior
 
     def sacar_carta_arriba(self, mostrar = False):
         nodo_carta = self.mazo.cabeza

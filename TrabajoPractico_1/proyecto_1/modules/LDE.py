@@ -62,11 +62,17 @@ class ListaDobleEnlazada:
             dato = self.cabeza
             self.cabeza = self.cabeza.siguiente
             self.tamanio -= 1
-            self.cabeza.anterior = None
+            if self.cabeza:
+                self.cabeza.anterior = None
+            else:
+                self.cola = None
         elif posicion == self.tamanio-1 or posicion == -1:
             dato = self.cola
             self.cola = self.cola.anterior
-            self.cola.siguiente = None
+            if self.cola:
+                self.cola.siguiente = None
+            else:
+                self.cabeza = None
             self.tamanio -= 1
         elif posicion>-1 and posicion<self.tamanio-1:
             actual = self.cabeza
@@ -74,7 +80,7 @@ class ListaDobleEnlazada:
                 actual = actual.siguiente
             dato = actual
             actual.anterior.siguiente , actual.siguiente.anterior = actual.siguiente , actual.anterior
-            actual = actual.siguiente
+            #actual = actual.siguiente
             self.tamanio -= 1
         else:
             raise IndexError("Posición fuera de rango")
