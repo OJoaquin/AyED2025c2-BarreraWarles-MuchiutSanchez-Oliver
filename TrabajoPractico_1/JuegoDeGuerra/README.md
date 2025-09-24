@@ -1,4 +1,4 @@
-Algoritmo de Juego de Guerra:
+# Algoritmo de Juego de Guerra:
 
 
 En este script, se encontraran algoritmos para simular el tipico juego de cartas de "La guerra".
