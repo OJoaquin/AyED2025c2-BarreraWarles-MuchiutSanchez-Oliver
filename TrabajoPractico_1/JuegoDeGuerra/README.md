@@ -10,7 +10,7 @@ En este algoritmo, podremos encontrar una variedad de codigos pertenecientes a d
 - La clase carta;
 - La clase Mazo;
 - El algoritmo para simular el juego de la guerra.
-Además, Se utilizaran un par de algoritmos utilizados en la seccion de LDE, como la funcion extraer(). 
+- Además, Se utilizaran un par de algoritmos utilizados en la seccion de LDE, como la funcion extraer(). 
 
 Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
 
