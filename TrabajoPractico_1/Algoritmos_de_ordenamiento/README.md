@@ -1,4 +1,4 @@
-Algoritmos de ordenamiento:
+# Algoritmos de ordenamiento:
 
 En este este script, utilizamos diversos metodos de ordenamiento en Python para poder comparar el costo de cada uno (Mediante graficas de tiempo).
 
