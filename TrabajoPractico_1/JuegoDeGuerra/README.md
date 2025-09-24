@@ -1,8 +1,8 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+#Algoritmo de Juego de Guerra
 
 Breve descripción del proyecto:
 
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+En este script, se encontraran algoritmos para simular el tipico juego de cartas de "La guerra"
 
 ---
 ## 🏗Arquitectura General
