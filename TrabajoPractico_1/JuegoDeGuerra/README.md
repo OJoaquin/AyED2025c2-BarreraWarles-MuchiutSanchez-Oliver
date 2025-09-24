@@ -1,13 +1,16 @@
-##Algoritmo de Juego de Guerra
+Algoritmo de Juego de Guerra:
 
-Breve descripción del proyecto:
 
-En este script, se encontraran algoritmos para simular el tipico juego de cartas de "La guerra"
+En este script, se encontraran algoritmos para simular el tipico juego de cartas de "La guerra".
 
 ---
 ## 🏗Arquitectura General
 
-Explica brevemente cómo está organizado el código (funciones y/o clases)
+En este algoritmo, podremos encontrar una variedad de codigos pertenecientes a distintas clases, como:
+- La clase carta;
+- La clase Mazo;
+- El algoritmo para simular el juego de la guerra.
+Además, Se utilizaran un par de algoritmos utilizados en la seccion de LDE, como la funcion extraer(). 
 
 Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
 
