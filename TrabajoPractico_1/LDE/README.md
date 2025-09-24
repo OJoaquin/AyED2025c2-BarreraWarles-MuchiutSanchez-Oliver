@@ -1,13 +1,24 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+# Algoritmos de Listas doblemente enlazadas
 
-Breve descripción del proyecto:
 
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+En este script, se entontraranuna serie de funciones que nos permitiran trabajar con una lista doblemente enlazada.
 
 ---
 ## 🏗Arquitectura General
 
-Explica brevemente cómo está organizado el código (funciones y/o clases)
+Este algoritmo estara conformado por una lista doblemente enlazada aleatoria y ademas con 11 funciones para trabajar con la misma, ellas son:
+- __init__();
+- esta_vacia();
+- Agregar al Inicio();
+- agregar_al_final();
+- insertar(item,posicion);
+- extraer(posicion);
+- copiar()
+- invertir()
+- concatenar(lista)
+- __len__()
+- __add__(lista)
+- __iter__()
 
 Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
 
