@@ -1,4 +1,4 @@
-#Algoritmo de Juego de Guerra
+##Algoritmo de Juego de Guerra
 
 Breve descripción del proyecto:
 
