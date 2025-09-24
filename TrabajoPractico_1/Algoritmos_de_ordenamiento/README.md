@@ -1,13 +1,14 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+Algoritmos de ordenamiento:
 
-Breve descripción del proyecto:
-
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+En este este script, utilizamos diversos metodos de ordenamiento en Python para poder comparar el costo de cada uno (Mediante graficas de tiempo).
 
 ---
 ## 🏗Arquitectura General
 
-Explica brevemente cómo está organizado el código (funciones y/o clases)
+El codigo de ordenamiento estara formada por 3 algoritmos para ordenar listas, los cuales son:
+- Ordenamiento Burbuja;
+- Ordenamiento por residuo;
+- Ordenamiento rapido.
 
 Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
 
