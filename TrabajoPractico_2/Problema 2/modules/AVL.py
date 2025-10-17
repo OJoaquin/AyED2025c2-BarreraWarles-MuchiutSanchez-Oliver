@@ -40,6 +40,46 @@ class NodoArbol:
             self.hijoIzquierdo.padre = self
         if self.tieneHijoDerecho():
             self.hijoDerecho.padre = self
+    
+    def encontrarSucesor(self):
+      suc = None
+      if self.tieneHijoDerecho():
+          suc = self.hijoDerecho.encontrarMin()
+      else:
+          if self.padre:
+                 if self.esHijoIzquierdo():
+                     suc = self.padre
+                 else:
+                     self.padre.hijoDerecho = None
+                     suc = self.padre.encontrarSucesor()
+                     self.padre.hijoDerecho = self
+      return suc
+
+    def encontrarMin(self):
+      actual = self
+      while actual.tieneHijoIzquierdo():
+          actual = actual.hijoIzquierdo
+      return actual
+    
+    def empalmar(self):
+       if self.esHoja():
+           if self.esHijoIzquierdo():
+                  self.padre.hijoIzquierdo = None
+           else:
+                  self.padre.hijoDerecho = None
+       elif self.tieneAlgunHijo():
+           if self.tieneHijoIzquierdo():
+                  if self.esHijoIzquierdo():
+                     self.padre.hijoIzquierdo = self.hijoIzquierdo
+                  else:
+                     self.padre.hijoDerecho = self.hijoIzquierdo
+                  self.hijoIzquierdo.padre = self.padre
+           else:
+                  if self.esHijoIzquierdo():
+                     self.padre.hijoIzquierdo = self.hijoDerecho
+                  else:
+                     self.padre.hijoDerecho = self.hijoDerecho
+                  self.hijoDerecho.padre = self.padre
 
 
 class AVL:
@@ -133,49 +173,9 @@ class AVL:
          self.tamano = self.tamano - 1
       else:
          raise KeyError('Error, la clave no está en el árbol')
-
+      self.actualizarEquilibrio(nodoAEliminar)
     def __delitem__(self,clave):
        self.eliminar(clave)
-
-    def empalmar(self):
-       if self.esHoja():
-           if self.esHijoIzquierdo():
-                  self.padre.hijoIzquierdo = None
-           else:
-                  self.padre.hijoDerecho = None
-       elif self.tieneAlgunHijo():
-           if self.tieneHijoIzquierdo():
-                  if self.esHijoIzquierdo():
-                     self.padre.hijoIzquierdo = self.hijoIzquierdo
-                  else:
-                     self.padre.hijoDerecho = self.hijoIzquierdo
-                  self.hijoIzquierdo.padre = self.padre
-           else:
-                  if self.esHijoIzquierdo():
-                     self.padre.hijoIzquierdo = self.hijoDerecho
-                  else:
-                     self.padre.hijoDerecho = self.hijoDerecho
-                  self.hijoDerecho.padre = self.padre
-
-    def encontrarSucesor(self):
-      suc = None
-      if self.tieneHijoDerecho():
-          suc = self.hijoDerecho.encontrarMin()
-      else:
-          if self.padre:
-                 if self.esHijoIzquierdo():
-                     suc = self.padre
-                 else:
-                     self.padre.hijoDerecho = None
-                     suc = self.padre.encontrarSucesor()
-                     self.padre.hijoDerecho = self
-      return suc
-
-    def encontrarMin(self):
-      actual = self
-      while actual.tieneHijoIzquierdo():
-          actual = actual.hijoIzquierdo
-      return actual
 
     def remover(self,nodoActual):
          if nodoActual.esHoja(): #hoja
@@ -188,7 +188,6 @@ class AVL:
            suc.empalmar()
            nodoActual.clave = suc.clave
            nodoActual.cargaUtil = suc.cargaUtil
-
          else: # este nodo tiene un (1) hijo
            if nodoActual.tieneHijoIzquierdo():
              if nodoActual.esHijoIzquierdo():
@@ -214,7 +213,6 @@ class AVL:
                                     nodoActual.hijoDerecho.cargaUtil,
                                     nodoActual.hijoDerecho.hijoIzquierdo,
                                     nodoActual.hijoDerecho.hijoDerecho)
-        #self._remover(nodoActual.padre)
     
     
     # def _remover(self, nodo):
@@ -285,6 +283,18 @@ class AVL:
                     self.rotarDerecha(nodo)
                 else:
                     self.rotarDerecha(nodo)
+    def actualizarEquilibrio(self,nodo):
+        if nodo.factorEquilibrio > 1 or nodo.factorEquilibrio < -1:
+            self.reequilibrar(nodo)
+            return
+        if nodo.padre != None:
+            if nodo.esHijoIzquierdo():
+                    nodo.padre.factorEquilibrio += 1
+            elif nodo.esHijoDerecho():
+                nodo.padre.factorEquilibrio -= 1
+
+            if nodo.padre.factorEquilibrio != 0:
+                self.actualizarEquilibrio(nodo.padre)
 
 if __name__ == "__main__":
     import random
@@ -300,3 +310,21 @@ if __name__ == "__main__":
     #print(Arbolito.raiz.hijoDerecho.hijoIzquierdo.cargaUtil)
     print(Arbolito.raiz.hijoIzquierdo.hijoIzquierdo.cargaUtil)
     print(Arbolito.raiz.hijoIzquierdo.hijoDerecho.cargaUtil)
+    print("--------------")
+    Arbolito.eliminar(3)
+    print(Arbolito.raiz.cargaUtil)
+    print(Arbolito.raiz.hijoDerecho.cargaUtil)
+    print(Arbolito.raiz.hijoIzquierdo.cargaUtil)
+    print(Arbolito.raiz.hijoDerecho.hijoDerecho.cargaUtil)
+    #print(Arbolito.raiz.hijoDerecho.hijoIzquierdo.cargaUtil)
+    print(Arbolito.raiz.hijoIzquierdo.hijoIzquierdo.cargaUtil)
+    #print(Arbolito.raiz.hijoIzquierdo.hijoDerecho.cargaUtil)
+    print("--------------")
+    Arbolito.eliminar(4)
+    print(Arbolito.raiz.cargaUtil)
+    print(Arbolito.raiz.hijoDerecho.cargaUtil)
+    print(Arbolito.raiz.hijoIzquierdo.cargaUtil)
+    #print(Arbolito.raiz.hijoDerecho.hijoDerecho.cargaUtil)
+    # print(Arbolito.raiz.hijoDerecho.hijoIzquierdo.cargaUtil)
+    print(Arbolito.raiz.hijoIzquierdo.hijoIzquierdo.cargaUtil)
+    # print(Arbolito.raiz.hijoIzquierdo.hijoDerecho.cargaUtil)
