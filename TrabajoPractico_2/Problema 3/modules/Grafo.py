@@ -24,4 +24,4 @@ class Grafo:
     
 
     def __iter__(self):
-        return iter(self.vertices.values())    
+        return iter(self.vertices.values())      

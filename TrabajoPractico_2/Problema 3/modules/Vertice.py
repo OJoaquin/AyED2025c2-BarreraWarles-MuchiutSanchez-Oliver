@@ -25,3 +25,4 @@ class Vertice:
         
     def __lt__(self, otro):
         return self.distancia < otro.distancia
+                

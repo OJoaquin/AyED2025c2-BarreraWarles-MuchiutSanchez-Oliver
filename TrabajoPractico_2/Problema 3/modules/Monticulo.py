@@ -9,6 +9,9 @@ class Monticulo_Binario:
              self.listaMonticulo[i // 2] = self.listaMonticulo[i]
              self.listaMonticulo[i] = tmp
           i = i // 2
+    
+    def tamanomonticulo(self):
+      return self.tamanoActual
 
     def insertar(self,k):
       self.listaMonticulo.append(k)
