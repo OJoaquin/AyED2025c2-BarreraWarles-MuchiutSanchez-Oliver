@@ -1,14 +1,16 @@
-# Algoritmos de ordenamiento
+# Sala de espera
 
-En este este script, utilizamos diversos metodos de ordenamiento en Python para poder comparar el costo de cada uno (Mediante graficas de tiempo).
+Realizamos un proceso llamado triaje, que nos permite gestionar de la mejor manera el orden en que se atienden los pacientes de una clinica, teniendo en cuenta tanto orden de llegada como riesgo de salud.
 
 ---
 ## 🏗Arquitectura General
+La estructura consistira en 3 modulos que nos permitiran ordenar de la mejor manera a los pacientes:
 
-El codigo de ordenamiento estara formada por 3 algoritmos para ordenar listas, los cuales son:
-- Ordenamiento Burbuja;
-- Ordenamiento por residuo;
-- Ordenamiento rapido.
+- ColaDePrioridad;
+- Monticulo;
+- Paciente.
+
+Ademas utilizaremos el modulo de SalaDeEspera, que nos permitirá ordenar a los pacientes utilizando los otros 3, Cuyo nombre es SalaDeEspera.
 
 Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
 
