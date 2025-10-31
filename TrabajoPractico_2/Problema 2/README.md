@@ -1,14 +1,18 @@
-# Algoritmos de ordenamiento
+# Temperaturas
 
-En este este script, utilizamos diversos metodos de ordenamiento en Python para poder comparar el costo de cada uno (Mediante graficas de tiempo).
-
+En este este script, disponemos de un archivo de temperaturas diarias, debemos implementar modulos para poder trabajar con el archivo mediante funciones.
 ---
 ## 🏗Arquitectura General
 
-El codigo de ordenamiento estara formada por 3 algoritmos para ordenar listas, los cuales son:
-- Ordenamiento Burbuja;
-- Ordenamiento por residuo;
-- Ordenamiento rapido.
+Disponemos de 2 modulos principales, AVL para poder crear el arbol, y el modulo de Temperaturas_DB, en la que implementaremos las siguientes funciones:
+- guardar_temperatura(temperatura, fecha)
+- devolver_temperatura(fecha)
+- max_temp_rango(fecha1, fecha2)
+- min_temp_rango(fecha1, fecha2)
+- temp_extremos_rango(fecha1, fecha2)
+- borrar_temperatura(fecha)
+- devolver_temperaturas(fecha1, fecha2)
+- cantidad_muestras()
 
 Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
 
