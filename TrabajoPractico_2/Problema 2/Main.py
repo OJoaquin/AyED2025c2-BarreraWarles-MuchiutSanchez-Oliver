@@ -19,3 +19,8 @@ if __name__ == "__main__":
         print(Base_De_Datos_Temperaturas.temp_extremos_rango("2025/1/01", "2025/10/31"))
         print(Base_De_Datos_Temperaturas.devolver_temperaturas("2025/1/01", "2025/10/31"))
         print(Base_De_Datos_Temperaturas.cantidad_muestras())
+        print(Base_De_Datos_Temperaturas.borrar_temperatura("2025/01/01"))
+        print(Base_De_Datos_Temperaturas.cantidad_muestras())
+        print(Base_De_Datos_Temperaturas.devolver_temperaturas("2025/1/01", "2025/10/31"))
+        print(Base_De_Datos_Temperaturas.borrar_temperatura("2025/01/02"))
+        print(Base_De_Datos_Temperaturas.cantidad_muestras())

@@ -74,6 +74,7 @@ class Temperaturas_DB:
         return (minimo, maximo)
     
     def borrar_temperatura(self, fecha):
+        fecha = self.transformar_fecha(fecha)
         self.__arbol.eliminar(fecha)
         pass
     
@@ -96,6 +97,7 @@ class Temperaturas_DB:
             lineas = file.readlines()
             for linea in lineas:
                 fecha,temperatura = linea.strip().split(';')
+
                 self.guardar_temperatura(temperatura, fecha)
         pass
 
