@@ -1,14 +1,20 @@
-# Algoritmos de ordenamiento
+# Palomas Mensajeras
 
-En este este script, utilizamos diversos metodos de ordenamiento en Python para poder comparar el costo de cada uno (Mediante graficas de tiempo).
+En este este script, tenemos a disposición el archivo "aldeas.txt" formado por una serie de tuplas, la cual nos ayudara a organizar las noticias para cada casa dependiendo de las distancias recorridas y el trayecto de las mismas.
 
 ---
 ## 🏗Arquitectura General
 
-El codigo de ordenamiento estara formada por 3 algoritmos para ordenar listas, los cuales son:
-- Ordenamiento Burbuja;
-- Ordenamiento por residuo;
-- Ordenamiento rapido.
+El archivo esta conformado por una tupla en cada renglon, la cual estara conformada por una ciudad inicial y otra final, indicando el inicio y fin del recorrido, a su vez la misma tendra la distancia que se recorre en total.
+
+Ademas implementamos los siguientes modulos:
+- Vertice
+- Grafo
+- Exportar
+- Algoritmo_Prim
+- Monticulo
+- ColaDePrioridad
+
 
 Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
 
